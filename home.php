@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="">
     <title>Citroen</title>
     <style>
         * {
@@ -145,23 +146,31 @@
         .ui-button {
             height: 30px;
             cursor: pointer;
-            margin-right: 10px;
+            margin-right: 5px;
         }
 
         .dropdown {
             position: relative;
             display: inline-block;
-            margin-left: 10px;
+            margin-left: 5px;
         }
 
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #f9f9f9;
-            min-width: 120px;
+            background-color: #deff4a;
+            min-width: 60px;
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
             z-index: 1;
-            left: -100px;
+            left: -50px;
+            font-family: Arial, sans-serif;
+            /* Ganti dengan font yang diinginkan */
+            font-size: 14px;
+            /* Ukuran font */
+            font-weight: normal;
+            /* Atur tebal font (normal, bold, dsb) */
+            color: black;
+            text-align: center;
         }
 
         .dropdown-content.show {
@@ -176,14 +185,14 @@
         }
 
         .dropdown-content a:hover {
-            background-color: #f1f1f1;
+            background-color: #1c9943;
         }
 
         .cc-button-fixed {
             height: 55px;
             cursor: default;
             position: fixed;
-            top: -3px;
+            top: 5px;
             left: 10px;
             z-index: 1000;
         }
@@ -244,6 +253,7 @@
             /* Mengatur gambar ke tengah secara horizontal */
             cursor: pointer;
             /* Menampilkan pointer saat hover */
+            margin-top: -120px;
         }
 
         .image-box img {
@@ -276,10 +286,138 @@
             /* Atur ukuran gambar yang ditampilkan */
             height: auto;
         }
+
+        .large-bold {
+            font-weight: bold;
+            font-size: 1.5em;
+            /* Anda dapat mengubah nilai ini sesuai kebutuhan */
+        }
+
+        .large-text {
+            font-size: 1.5em;
+            /* Anda dapat mengubah nilai ini sesuai kebutuhan */
+        }
+
+        .review-container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .star-rating {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .fa-star {
+            font-size: 2em;
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        .fa-star.checked {
+            color: gold;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .button-container {
+            display: flex;
+            /* Mengatur kontainer menjadi fleksibel */
+            justify-content: center;
+            /* Menyusun tombol di tengah */
+            margin-top: 20px;
+            /* Spasi atas untuk jarak */
+        }
+
+        .button-container button {
+            border: none;
+            /* Menghapus border */
+            background: none;
+            /* Menghapus latar belakang */
+            cursor: pointer;
+            /* Mengubah kursor menjadi pointer saat hover */
+            margin: 0 10px;
+            /* Spacing horizontal antara tombol */
+            transition: transform 0.2s;
+            /* Efek transisi saat hover */
+        }
+
+        .button-container button:hover {
+            transform: scale(1.1);
+            /* Membesarkan tombol saat dihover */
+        }
+
+        .button-container img {
+            width: 50px;
+            /* Ukuran gambar */
+            height: 50px;
+            /* Ukuran gambar */
+        }
+
+
+        .review-container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        #reviews-list {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border-top: 2px solid #ccc;
+            margin-top: 20px;
+        }
+
+        .review-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .review-item h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .review-item p {
+            margin: 5px 0;
+        }
+
+        .review-item .review-stars {
+            color: gold;
+        }
     </style>
 </head>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <body class="light-mode">
     <audio id="background-music" loop>
@@ -290,17 +428,16 @@
     <div class="header">
         <div class="ui-buttons">
             <img src="play.png" alt="Play/Pause" id="play-pause-button" class="ui-button" onclick="toggleMusic()" aria-label="Tombol play/pause musik">
-            <img src="matahari.png" alt="Light Mode" id="light-mode-button" class="ui-button" onclick="setLightMode()" aria-label="Switch to Light Mode">
-            <img src="bulan.png" alt="Dark Mode" id="dark-mode-button" class="ui-button" onclick="setDarkMode()" aria-label="Switch to Dark Mode" style="display: none;">
+            <img src="matahari.png" alt="light/dark" id="toggleImage" class="ui-button" onclick="toggleMode()" aria-label="Tombol light/dark mode" style="width: 40px; height: 45px;">
             <div class="dropdown">
                 <img class="ui-button" src="z.png" alt="Z" id="toggle-button">
                 <div class="dropdown-content">
-                    <a href="#video" class="scroll" data-target="video">Home</a>
-                    <a href="#menu" class="scroll" data-target="menu">Menu</a>
-                    <a href="#label" class="scroll" data-target="label">Label</a>
-                    <a href="#lokasi" class="scroll" data-target="lokasi">Lokasi</a>
-                    <a href="#foto" class="scroll" data-target="foto">Harga</a>
-                    <a href="#footer" class="scroll" data-target="footer">About</a>
+                    <a href="#video" data-target="video">Home</a>
+                    <a href="#menu" data-target="menu">Menu</a>
+                    <a href="#harga" data-target="harga">Harga</a>
+                    <a href="#label" data-target="label">Label</a>
+                    <a href="#foto" data-target="foto">Lokasi</a>
+                    <a href="#footer" data-target="footer">About</a>
                 </div>
             </div>
         </div>
@@ -329,24 +466,35 @@
                 <h1>Daftar Menu</h1>
             </center>
             <div class="selected-image">
-                <p id="image-description">Silahkan Ingin Pesan Apa?.</p>
-                <img id="displayed-image" src="" alt="Gambar yang dipilih" style="display: none;">
-            </div>
-            <div class="image-container">
-                <div class="image-box" onclick="displayImage('jeruk wortel.jpg')">
-                    <img src="jeruk wortel.jpg" alt="Gambar jeruk wortel">
+                <div class="image-container">
+                    <p id="image-description">Silahkan Ingin Pesan Apa?.</p>
+                    <img id="displayed-image" src="" alt="Gambar yang dipilih" style="display: none;">
                 </div>
-                <div class="image-box" onclick="displayImage('jeruk belimbing.jpg')">
-                    <img src="jeruk belimbing.jpg" alt="Gambar jeruk belimbing">
-                </div>
-                <div class="image-box" onclick="displayImage('jeruk semangka.jpg')">
-                    <img src="jeruk semangka.jpg" alt="Gambar jeruk semangka">
-                </div>
-                <div class="image-box" onclick="displayImage('jeruk srikaya.jpg')">
-                    <img src="jeruk srikaya.jpg" alt="Gambar jeruk srikaya">
-                </div>
-                <div class="image-box" onclick="displayImage('jeruk doang.jpg')">
-                    <img src="jeruk doang.jpg" alt="Gambar jeruk doang">
+                <div class="image-container">
+                    <div class="image-box" onclick="displayImage('jeruk wortel.jpg', ' jus jeruk wortel ', 'tes')">
+                        <img src="jeruk wortel.jpg" alt="Gambar jeruk wortel">
+                    </div>
+                    <div class="image-box" onclick="displayImage('jeruk belimbing.jpg', ' jus jeruk belimbing ', 'tes')">
+                        <img src="jeruk belimbing.jpg" alt="Gambar jeruk belimbing">
+                    </div>
+                    <div class="image-box" onclick="displayImage('jeruk semangka.jpg', ' jus jeruk semangka', 'tes')">
+                        <img src="jeruk semangka.jpg" alt="Gambar jeruk semangka">
+                    </div>
+                    <div class="image-box" onclick="displayImage('jeruk srikaya.jpg', 'jus jeruk srikaya ', 'tes')">
+                        <img src="jeruk srikaya.jpg" alt="Gambar jeruk srikaya">
+                    </div>
+                    <div class="image-box" onclick="displayImage('jeruk doang.jpg', '  jus jeruk asli ', 'tes')">
+                        <img src="jeruk doang.jpg" alt="Gambar jeruk doang">
+                    </div>
+                    <div class="button-container">
+                        <button onclick="moveLeft()">
+                            <img src="bagian kiri.png" alt="Kiri">
+                        </button>
+                        <button onclick="moveRight()">
+                            <img src="bagian kanan.png" alt="Kanan">
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -354,19 +502,46 @@
 
     <div class="section-divider"></div>
 
-    <div id="label" class="section white-black-section">
-        <h1>Label Kita</h1>
-        <p>Ini adalah konten untuk bagian ungu.</p>
+    <div id="harga" class="section white-black-section">
+        <center>
+            <h1>Promo Diskon</h1>
+        </center>
+
     </div>
 
     <div class="section-divider"></div>
 
-    <div id="lokasi" class="section white-black-section">
+    <div id="label" class="section white-black-section">
+        <center>
+            <h1>Ulasan</h1>
+        </center>
+
+    </div>
+
+    <div class="review-container">
+        <div class="star-rating">
+            <span class="fa fa-star" data-rating="1"></span>
+            <span class="fa fa-star" data-rating="2"></span>
+            <span class="fa fa-star" data-rating="3"></span>
+            <span class="fa fa-star" data-rating="4"></span>
+            <span class="fa fa-star" data-rating="5"></span>
+        </div>
+        <textarea id="review-text" rows="4" placeholder="Tulis ulasan Anda di sini..."></textarea>
+        <button onclick="submitReview()">Kirim Ulasan</button>
+    </div>
+    <div id="reviews-list" class="section white-black-section">
+        <h2>Ulasan Pengguna:</h2>
+        <!-- Ulasan akan muncul di sini -->
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div id="foto" class="section white-black-section">
         <h1>Lokasi Kita</h1>
         <p>Rumah Ridwan.</p>
         <div style="width: 100%; height: 400px;">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.2538870104563!2d106.72858257364055!3d-6.3611775622265485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69efa7a6f775fd%3A0xc594d9e6b0a286a6!2sPamulang%20Elok!5e0!3m2!1sen!2sus!4v1728208262461!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3965.2594383360447!2d106.733796!3d-6.360458!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69efa7a6f775fd%3A0xc594d9e6b0a286a6!2sPamulang%20Elok!5e0!3m2!1sen!2sus!4v1728216596255!5m2!1sen!2sus"
                 width="100%"
                 height="100%"
                 style="border:0;"
@@ -377,6 +552,7 @@
     </div>
 
     <div id="footer" class="footer">
+        <p> 2024 Citroen. Semua Hak Cipta Dilindungi.</p>
         <a href="https://www.facebook.com/sultanajisaputra12?mibextid=JRoKGi" target="_blank">
             <img src="fb.png" alt="FB">
         </a>
@@ -401,7 +577,7 @@
             const dropdownContent = document.querySelector('.dropdown-content');
             dropdownContent.classList.toggle('show');
         }
-        // Menutup dropdown jika pengguna mengklik di luar dropdown
+        // Fungsi untuk menutup dropdown jika pengguna mengklik di luar dropdown
         window.onclick = function(event) {
             if (!event.target.matches('#toggle-button')) {
                 const dropdowns = document.getElementsByClassName("dropdown-content");
@@ -412,29 +588,63 @@
                     }
                 }
             }
-        }
+        };
+
         // Smooth scrolling
-        $('.scroll').on('click', function(e) {
-            e.preventDefault();
-            $('.dropdown-content').removeClass('show'); // close dropdown after selecting an item
-            var target = $(this).data('target');
-            $('html, body').animate({
-                scrollTop: $('#' + target).offset().top
-            }, 500);
+        document.querySelectorAll('.dropdown-content a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('data-target');
+                const targetElement = document.getElementById(targetId);
+
+                // Lakukan smooth scroll ke elemen target
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
         });
-        // Menampilkan gambar yang diklik
-        function displayImage(imageSrc) {
+
+        function displayImage(imageSrc, imageDescription, additionalText = '') {
             const displayedImage = document.getElementById('displayed-image');
             const description = document.getElementById('image-description');
+
+            // Update gambar dan deskripsi
             displayedImage.src = imageSrc;
-            displayedImage.style.display = 'block'; // Tampilkan gambar
-            description.innerText = "Anda telah memilih gambar: " + imageSrc; // Mengubah teks deskripsi
+            description.innerHTML = `<span class="large-bold">${imageDescription}</span><br><span class="large-text">${additionalText}</span>`;
+
+            // Tampilkan gambar
+            displayedImage.style.display = 'block';
         }
-        // Mengatur tampilan dropdown
-        document.getElementById('toggle-button').onclick = function() {
+
+        // Fungsi untuk menampilkan atau menyembunyikan dropdown
+        function toggleDropdown() {
             const dropdownContent = document.querySelector('.dropdown-content');
             dropdownContent.classList.toggle('show');
-        };
+        }
+
+        // Menambahkan event listener untuk tombol dropdown
+        document.getElementById('toggle-button').onclick = toggleDropdown;
+
+        // Fungsi untuk mengganti mode gelap dan terang
+        function toggleMode() {
+            var body = document.body;
+            var toggleImage = document.getElementById("toggleImage");
+
+            if (body.classList.contains("light-mode")) {
+                body.classList.replace("light-mode", "dark-mode");
+                toggleImage.src = "bulan.png"; // Ganti dengan gambar mode gelap
+                toggleImage.alt = "Mode Terang";
+            } else {
+                body.classList.replace("dark-mode", "light-mode");
+                toggleImage.src = "matahari.png"; // Ganti dengan gambar mode terang
+                toggleImage.alt = "Mode Gelap";
+            }
+        }
+
+        // Menambahkan event listener untuk tombol mode
+        document.getElementById('toggle-mode-button').onclick = toggleMode;
+
         //Menutup dropdown jika pengguna mengklik di luar
         window.onclick = function(event) {
             if (!event.target.matches('#toggle-button')) {
@@ -463,25 +673,67 @@
             }
         }
 
-        // Mode switch function
-        function setLightMode() {
-            document.body.classList.remove('dark-mode');
-            document.body.classList.add('light-mode');
-            document.getElementById('light-mode-button').style.display = 'none';
-            document.getElementById('dark-mode-button').style.display = 'inline'; // Tampilkan tombol dark mode
-        }
-
-        function setDarkMode() {
-            document.body.classList.remove('light-mode');
-            document.body.classList.add('dark-mode');
-            document.getElementById('dark-mode-button').style.display = 'none';
-            document.getElementById('light-mode-button').style.display = 'inline'; // Tampilkan tombol light mode
-        }
-
-
         // Add Event Listener for mode toggle button
         document.getElementById('toggle-button').addEventListener('click', toggleMode);
     </script>
+
+    <script>
+        let currentIndex = 0;
+        const images = [{
+                src: 'jeruk wortel.jpg',
+                description: 'jus jeruk wortel'
+            },
+            {
+                src: 'jeruk belimbing.jpg',
+                description: 'jus jeruk belimbing'
+            },
+            {
+                src: 'jeruk semangka.jpg',
+                description: 'jus jeruk semangka'
+            },
+            {
+                src: 'jeruk srikaya.jpg',
+                description: 'jus jeruk srikaya'
+            },
+            {
+                src: 'jeruk doang.jpg',
+                description: 'jus jeruk asli'
+            },
+        ];
+
+        function displayImage(imageSrc, description) {
+            const imgElement = document.getElementById('displayed-image');
+            const descElement = document.getElementById('image-description');
+
+            imgElement.src = imageSrc;
+            imgElement.alt = description;
+            imgElement.style.display = 'block';
+            descElement.innerText = description;
+
+            // Update the current index
+            currentIndex = images.findIndex(img => img.src === imageSrc);
+        }
+
+        function moveLeft() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateDisplayedImage();
+        }
+
+        function moveRight() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateDisplayedImage();
+        }
+
+        function updateDisplayedImage() {
+            const imgElement = document.getElementById('displayed-image');
+            const descElement = document.getElementById('image-description');
+
+            imgElement.src = images[currentIndex].src;
+            imgElement.alt = images[currentIndex].description;
+            descElement.innerText = images[currentIndex].description;
+        }
+    </script>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <script>
@@ -495,6 +747,131 @@
                 timer: 10000 // Auto-close after 10 seconds
             });
         };
+    </script>
+    <script>
+        let position = 0; // Posisi awal gambar
+        const step = 20; // Jarak pergeseran
+
+        function moveLeft() {
+            position -= step; // Geser ke kiri
+            updateImagePosition();
+        }
+
+        function moveRight() {
+            position += step; // Geser ke kanan
+            updateImagePosition();
+        }
+
+        function updateImagePosition() {
+            const image = document.getElementById('image');
+            image.style.transform = `translateX(${position}px)`;
+        }
+
+        //ulasan
+        let rating = 0;
+
+        // Fungsi untuk mengatur rating bintang
+        document.querySelectorAll('.fa-star').forEach(star => {
+            star.addEventListener('click', function() {
+                rating = this.getAttribute('data-rating');
+                updateStars(rating);
+            });
+        });
+
+        function updateStars(rating) {
+            document.querySelectorAll('.fa-star').forEach(star => {
+                if (star.getAttribute('data-rating') <= rating) {
+                    star.classList.add('checked');
+                } else {
+                    star.classList.remove('checked');
+                }
+            });
+        }
+
+        // Fungsi untuk menyimpan ulasan ke Local Storage
+        function saveReviewsToLocalStorage(reviews) {
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+        }
+
+        // Fungsi untuk mengambil ulasan dari Local Storage
+        function loadReviewsFromLocalStorage() {
+            const savedReviews = localStorage.getItem('reviews');
+            if (savedReviews) {
+                return JSON.parse(savedReviews);
+            }
+            return [];
+        }
+
+        // Fungsi untuk menampilkan ulasan di halaman
+        function displayReviews(reviews) {
+            const reviewList = document.getElementById('reviews-list');
+            reviewList.innerHTML = '<h2>Ulasan Pengguna:</h2>'; // Reset ulasan lama
+
+            reviews.forEach(review => {
+                const reviewItem = document.createElement('div');
+                reviewItem.classList.add('review-item');
+
+                // Tambahkan bintang ke ulasan
+                const starSpan = document.createElement('span');
+                starSpan.classList.add('review-stars');
+                for (let i = 0; i < review.rating; i++) {
+                    starSpan.innerHTML += '★';
+                }
+
+                // Tambahkan teks ulasan ke elemen ulasan
+                const reviewTextElement = document.createElement('p');
+                reviewTextElement.textContent = review.text;
+
+                // Gabungkan bintang dan teks ulasan
+                reviewItem.appendChild(starSpan);
+                reviewItem.appendChild(reviewTextElement);
+
+                // Tambahkan ulasan baru ke daftar ulasan
+                reviewList.appendChild(reviewItem);
+            });
+        }
+
+        // Fungsi untuk mengirim ulasan dan menampilkannya
+        function submitReview() {
+            const reviewText = document.getElementById('review-text').value;
+            if (rating > 0 && reviewText.trim() !== '') {
+                // Ambil ulasan yang sudah ada
+                const reviews = loadReviewsFromLocalStorage();
+
+                // Tambahkan ulasan baru
+                const newReview = {
+                    rating: rating,
+                    text: reviewText
+                };
+                reviews.push(newReview);
+
+                // Simpan ulasan ke Local Storage
+                saveReviewsToLocalStorage(reviews);
+
+                // Tampilkan ulasan
+                displayReviews(reviews);
+
+                // Reset form setelah ulasan dikirim
+                document.getElementById('review-text').value = '';
+                updateStars(0); // Reset bintang
+            } else {
+                alert('Silakan pilih jumlah bintang dan tulis ulasan Anda.');
+            }
+        }
+
+        // Saat halaman dimuat, tampilkan ulasan yang tersimpan
+        window.onload = function() {
+            const reviews = loadReviewsFromLocalStorage();
+            displayReviews(reviews);
+        };
+        // buat hapus ulasan
+        // window.onload = function() {
+        // Menghapus semua ulasan dari local storage
+        //localStorage.clear();
+
+        //     const reviews = loadReviewsFromLocalStorage();
+        //displayReviews(reviews);
+        // };
     </script>
 </body>
 
