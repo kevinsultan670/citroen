@@ -6,12 +6,12 @@ const drinks = [
   },
   {
     name: "Jus Jeruk Belimbing",
-    imageUrl: "image/jeruk belimbing.jpg",
+    imageUrl: "image/jus jeruk belimbing.jpg",
     price: 7000,
   },
   {
-    name: "Jus Jeruk Semangka",
-    imageUrl: "image/jeruk semangka.jpg",
+    name: "Jus orange",
+    imageUrl: "image/jus-orange.webp",
     price: 7000,
   },
   {
