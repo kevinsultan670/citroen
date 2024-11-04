@@ -6,7 +6,7 @@ const drinks = [
   },
   {
     name: "Jus Jeruk Belimbing",
-    imageUrl: "image/jus jeruk belimbing.jpg",
+    imageUrl: "image/belimbing.jpg",
     price: 7000,
   },
   {
