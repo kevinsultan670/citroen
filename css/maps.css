@@ -1,0 +1,37 @@
+/* google-maps.css */
+#foto {
+  text-align: center; /* Center the content */
+  padding: 20px; /* Add padding for spacing */
+}
+
+#foto h1 {
+  font-size: 2rem; /* Larger font for the title */
+  margin-bottom: 10px; /* Space below the title */
+}
+
+#foto p {
+  font-size: 1.2rem; /* Slightly larger font for description */
+  color: #666; /* Gray color for the text */
+  margin-bottom: 20px; /* Space below the description */
+}
+
+.google-maps-container {
+  width: 100%;
+  max-width: 800px; /* Limit maximum width for larger screens */
+  height: 400px; /* Fixed height for the map */
+  margin: 0 auto; /* Center the map on the page */
+  border: 2px solid #007bff; /* Border around the map */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Hide overflow to maintain shape */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  #foto h1 {
+    font-size: 1.5rem; /* Smaller font on mobile */
+  }
+
+  #foto p {
+    font-size: 1rem; /* Smaller description on mobile */
+  }
+}

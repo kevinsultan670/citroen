@@ -1,0 +1,83 @@
+/* Reset style dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Background untuk section */
+.section {
+  padding: 50px 20px;
+  min-height: 100vh;
+}
+
+.white-black-section {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Heading bagian tengah */
+#menu h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* Style untuk bagian deskripsi dan gambar */
+.selected-image {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#image-description {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+/* Gaya kontainer gambar */
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Box tiap gambar dan tombol */
+.image-box {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: transform 0.2s;
+  width: 180px;
+}
+
+.image-box:hover {
+  transform: scale(1.05);
+}
+
+/* Style gambar produk */
+.image-box img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Style tombol Beli */
+.image-box button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.image-box button:hover {
+  background-color: #218838;
+}

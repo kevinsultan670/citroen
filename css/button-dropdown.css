@@ -1,0 +1,55 @@
+/* Buttons & Dropdown Styles */
+.cc-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100px;
+  width: auto;
+  z-index: 1000;
+}
+
+.cc-button-fixed {
+  height: 55px;
+  cursor: default;
+  position: fixed;
+  top: 5px;
+  left: 10px;
+  z-index: 1000;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #deff4a;
+  min-width: 60px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  left: -50px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  color: black;
+  text-align: center;
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #1c9943;
+}
